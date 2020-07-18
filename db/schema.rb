@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_07_18_143115) do
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.boolean "validated"
+    t.string "name", null: false
+    t.boolean "validated", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
