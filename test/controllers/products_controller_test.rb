@@ -3,7 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = create(:product)
-    @product_new = build(:product)
+    @product_new = build(:product, category: create(:category))
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { name: @product_new.name, validated: @product_new.validated } }
+      post products_url, params: { product: { name: @product_new.name, category_id: @product_new.category_id, validated: @product_new.validated } }
     end
 
     assert_redirected_to product_url(Product.last)
