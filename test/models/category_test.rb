@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
+
   test 'should not save category without a name' do
     category = build(:category, name: '')
     assert_not category.save, 'Saved the category without a name'
@@ -11,4 +12,5 @@ class CategoryTest < ActiveSupport::TestCase
     category = build(:category, name: 'Category 1')
     assert_not category.save, 'Category saved with duplicated name'
   end
+
 end
