@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ProductsTest < ApplicationSystemTestCase
   setup do
-    @product = products(:one)
+    @product = build(:product)
   end
 
   test "visiting the index" do
@@ -11,10 +11,13 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "creating a Product" do
+    @product.category.save
     visit products_url
     click_on "New Product"
 
     fill_in "Name", with: @product.name
+    select(@product.category.id, from: "product_category_id")
+
     check "Validated" if @product.validated
     click_on "Create Product"
 
@@ -23,6 +26,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "updating a Product" do
+    @product.save
     visit products_url
     click_on "Edit", match: :first
 
@@ -35,6 +39,7 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Product" do
+    @product.save
     visit products_url
     page.accept_confirm do
       click_on "Destroy", match: :first

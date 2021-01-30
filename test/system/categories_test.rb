@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class CategoriesTest < ApplicationSystemTestCase
   setup do
-    @category = categories(:one)
+    @category = build(:category)
   end
 
   test "visiting the index" do
@@ -23,6 +23,7 @@ class CategoriesTest < ApplicationSystemTestCase
   end
 
   test "updating a Category" do
+    @category.save
     visit categories_url
     click_on "Edit", match: :first
 
@@ -35,6 +36,7 @@ class CategoriesTest < ApplicationSystemTestCase
   end
 
   test "destroying a Category" do
+    @category.save
     visit categories_url
     page.accept_confirm do
       click_on "Destroy", match: :first

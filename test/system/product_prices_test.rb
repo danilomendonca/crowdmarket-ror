@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ProductPricesTest < ApplicationSystemTestCase
   setup do
-    @product_price = product_prices(:one)
+    @product_price = build(:product_price)
   end
 
   test "visiting the index" do
@@ -11,6 +11,7 @@ class ProductPricesTest < ApplicationSystemTestCase
   end
 
   test "creating a Product price" do
+    @product_price.product.save
     visit product_prices_url
     click_on "New Product Price"
 
@@ -22,9 +23,11 @@ class ProductPricesTest < ApplicationSystemTestCase
   end
 
   test "updating a Product price" do
+    @product_price.save
     visit product_prices_url
     click_on "Edit", match: :first
 
+    select(@product_price.product.id, from: "product_price_product_id")
     fill_in "Price", with: @product_price.price
     click_on "Update Product price"
 
@@ -33,6 +36,7 @@ class ProductPricesTest < ApplicationSystemTestCase
   end
 
   test "destroying a Product price" do
+    @product_price.save
     visit product_prices_url
     page.accept_confirm do
       click_on "Destroy", match: :first
