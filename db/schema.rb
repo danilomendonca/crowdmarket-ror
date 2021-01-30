@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_210635) do
+ActiveRecord::Schema.define(version: 2021_01_30_163037) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.boolean "validated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_prices", force: :cascade do |t|
+    t.decimal "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "product_id", null: false
+    t.index ["product_id"], name: "index_product_prices_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -28,5 +36,6 @@ ActiveRecord::Schema.define(version: 2020_07_19_210635) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  add_foreign_key "product_prices", "products"
   add_foreign_key "products", "categories"
 end

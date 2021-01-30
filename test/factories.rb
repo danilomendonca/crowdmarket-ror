@@ -8,4 +8,13 @@ FactoryBot.define do
     sequence(:name)  {|n| "Product##{n}" }
     association :category
   end
+
+  factory :product_without_category, class: Product do
+    sequence(:name)  {|n| "Product##{n}" }
+  end
+
+  factory :product_price do
+    sequence(:price)  {|n| n }
+    association :product
+  end
 end
