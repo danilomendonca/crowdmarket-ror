@@ -12,9 +12,12 @@ class ProductPricesTest < ApplicationSystemTestCase
 
   test "creating a Product price" do
     @product_price.product.save
+    @product_price.supermarket.save
     visit product_prices_url
     click_on "New Product Price"
 
+    select(@product_price.product.id, from: "product_price_product_id")
+    select(@product_price.supermarket.id, from: "product_price_supermarket_id")
     fill_in "Price", with: @product_price.price
     click_on "Create Product price"
 
@@ -28,6 +31,7 @@ class ProductPricesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     select(@product_price.product.id, from: "product_price_product_id")
+    select(@product_price.supermarket.id, from: "product_price_supermarket_id")
     fill_in "Price", with: @product_price.price
     click_on "Update Product price"
 

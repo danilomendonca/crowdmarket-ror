@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Supermarket</th>
       <th>Product</th>
       <th>Price</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @product_prices.each do |product_price| %>
       <tr>
+        <td><%= product_price.supermarket.name %></td>
         <td><%= product_price.product.name %></td>
         <td><%= product_price.price %></td>
         <td><%= link_to 'Show', product_price %></td>

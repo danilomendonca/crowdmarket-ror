@@ -16,5 +16,10 @@ FactoryBot.define do
   factory :product_price do
     sequence(:price)  {|n| n }
     association :product
+    association :supermarket
+  end
+
+  factory :supermarket do
+    sequence(:name)  {|n| "Supermarket##{n}" }
   end
 end
