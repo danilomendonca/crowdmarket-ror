@@ -6,6 +6,7 @@ FactoryBot.define do
 
   factory :product do
     sequence(:name)  {|n| "Product##{n}" }
+    validated { false }
     association :category
   end
 
@@ -15,6 +16,7 @@ FactoryBot.define do
 
   factory :product_price do
     sequence(:price)  {|n| n }
+    validated { false }
     association :product
     association :supermarket
   end

@@ -13,6 +13,11 @@ class ProductTest < ActiveSupport::TestCase
     assert_not product.save, "Product saved with duplicated name"
   end
 
+  test "should not save product without validated field" do
+    product = build(:product, validated: nil)
+    assert_not product.save, "Saved the product without validated field"
+  end
+
   test "should not save product without a valid category" do
     product = build(:product_without_category)
     assert_not product.save, "Product saved without a valid category"
