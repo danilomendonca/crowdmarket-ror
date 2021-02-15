@@ -11,12 +11,14 @@ class ProductsTest < ApplicationSystemTestCase
   end
 
   test "creating a Product" do
-    @product.category.save
+    @category = create(:category)
+    @product.brand.save
     visit products_url
     click_on "New Product"
 
     fill_in "Name", with: @product.name
-    select(@product.category.id, from: "product_category_id")
+    select(@category.name, from: "product_category_id")
+    select(@product.brand.name, from: "product_brand_id")
 
     check "Validated" if @product.validated
     click_on "Create Product"
@@ -27,10 +29,13 @@ class ProductsTest < ApplicationSystemTestCase
 
   test "updating a Product" do
     @product.save
+    @product.brand.save
     visit products_url
     click_on "Edit", match: :first
 
     fill_in "Name", with: @product.name
+    select(@product.brand.name, from: "product_brand_id")
+
     check "Validated" if @product.validated
     click_on "Update Product"
 
