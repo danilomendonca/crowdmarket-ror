@@ -1,5 +1,5 @@
-<h1>New Product Price</h1>
+<h1>New Price<%== " for #{@product_price.product&.name}" unless @product_price.product.nil? %></h1>
 
-<%= render 'form', product_price: @product_price %>
+<%= render 'product_prices/form', product_price: @product_price %>
 
-<%= link_to 'Back', product_prices_path %>
+<%= link_to 'List', product_prices_path %>

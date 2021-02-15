@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.select :category_id, options_for_select(Category.all.map{|c| [c.name, c.id]}), required: true %>
+    <%= form.select :category_id, options_for_select(Category.all.map{|c| [c.name, c.id]}, product.category_id), {}, {required: true, disabled: !product.category.nil?} %>
   </div>
 
   <div class="field">
     <%= form.label :brand_id %>
-    <%= form.select :brand_id, options_for_select(Brand.all.map{|c| [c.name, c.id]}), required: true %>
+    <%= form.select :brand_id, options_for_select(Brand.all.map{|c| [c.name, c.id]}, product.brand_id), required: true %>
   </div>
 
   <!--<div class="field">

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Supermarket:</strong>
-  <%= @product_price.supermarket.name %>
+  <%= link_to @product_price.supermarket.name, @product_price.supermarket %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @product_price.product.name %>
+  <%= link_to @product_price.product.name, @product_price.product %>
 </p>
 
 <p>
@@ -15,5 +15,6 @@
   <%= @product_price.price %>
 </p>
 
+<%= link_to 'Product', @product_price.product %> |
 <%= link_to 'Edit', edit_product_price_path(@product_price) %> |
-<%= link_to 'Back', product_prices_path %>
+<%= link_to 'List', product_prices_path %>

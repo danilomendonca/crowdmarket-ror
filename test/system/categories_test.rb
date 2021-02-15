@@ -19,7 +19,7 @@ class CategoriesTest < ApplicationSystemTestCase
     click_on "Create Category"
 
     assert_text "Category was successfully created"
-    click_on "Back"
+    click_on "List"
   end
 
   test "updating a Category" do
@@ -32,7 +32,7 @@ class CategoriesTest < ApplicationSystemTestCase
     click_on "Update Category"
 
     assert_text "Category was successfully updated"
-    click_on "Back"
+    click_on "List"
   end
 
   test "destroying a Category" do

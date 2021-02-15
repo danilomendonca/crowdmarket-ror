@@ -5,5 +5,7 @@
   <%= @supermarket.name %>
 </p>
 
+<%= render 'supermarkets/prices', product_prices: @supermarket.product_prices %>
+
 <%= link_to 'Edit', edit_supermarket_path(@supermarket) %> |
-<%= link_to 'Back', supermarkets_path %>
+<%= link_to 'List', supermarkets_path %>

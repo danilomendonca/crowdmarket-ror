@@ -22,7 +22,7 @@ class ProductPricesTest < ApplicationSystemTestCase
     click_on "Create Product price"
 
     assert_text "Product price was successfully created"
-    click_on "Back"
+    click_on "List"
   end
 
   test "updating a Product price" do
@@ -36,7 +36,7 @@ class ProductPricesTest < ApplicationSystemTestCase
     click_on "Update Product price"
 
     assert_text "Product price was successfully updated"
-    click_on "Back"
+    click_on "List"
   end
 
   test "destroying a Product price" do

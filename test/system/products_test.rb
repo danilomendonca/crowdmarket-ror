@@ -22,7 +22,7 @@ class ProductsTest < ApplicationSystemTestCase
     click_on "Create Product"
 
     assert_text "Product was successfully created"
-    click_on "Back"
+    click_on "List"
   end
 
   test "updating a Product" do
@@ -35,7 +35,7 @@ class ProductsTest < ApplicationSystemTestCase
     click_on "Update Product"
 
     assert_text "Product was successfully updated"
-    click_on "Back"
+    click_on "List"
   end
 
   test "destroying a Product" do

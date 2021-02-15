@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add_price]
 
   # GET /products
   # GET /products.json
@@ -19,6 +19,12 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+  end
+
+  # GET /products/1/add_price
+  def add_price
+    @product_price = ProductPrice.new(product: @product)
+    render 'product_prices/new'
   end
 
   # POST /products
@@ -63,7 +69,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:id] || params[:product_id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -18,7 +18,7 @@ class SupermarketsTest < ApplicationSystemTestCase
     click_on "Create Supermarket"
 
     assert_text "Supermarket was successfully created"
-    click_on "Back"
+    click_on "List"
   end
 
   test "updating a Supermarket" do
@@ -29,7 +29,7 @@ class SupermarketsTest < ApplicationSystemTestCase
     click_on "Update Supermarket"
 
     assert_text "Supermarket was successfully updated"
-    click_on "Back"
+    click_on "List"
   end
 
   test "destroying a Supermarket" do

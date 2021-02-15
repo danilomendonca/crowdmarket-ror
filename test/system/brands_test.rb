@@ -18,7 +18,7 @@ class BrandsTest < ApplicationSystemTestCase
     click_on "Create Brand"
 
     assert_text "Brand was successfully created"
-    click_on "Back"
+    click_on "List"
   end
 
   test "updating a Brand" do
@@ -30,7 +30,7 @@ class BrandsTest < ApplicationSystemTestCase
     click_on "Update Brand"
 
     assert_text "Brand was successfully updated"
-    click_on "Back"
+    click_on "List"
   end
 
   test "destroying a Brand" do

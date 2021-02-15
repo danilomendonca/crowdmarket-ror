@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy, :add_product]
 
   # GET /categories
   # GET /categories.json
@@ -19,6 +19,12 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+  end
+
+  # GET /categories/1/add_product
+  def add_product
+    @product = Product.new(category: @category)
+    render 'products/new'
   end
 
   # POST /categories
@@ -64,7 +70,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.find(params[:id] || params[:category_id])
     end
 
     # Only allow a list of trusted parameters through.

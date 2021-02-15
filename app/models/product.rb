@@ -6,6 +6,6 @@ class Product < ApplicationRecord
   validates :brand, presence: true
   belongs_to :category
   belongs_to :brand
+  has_many :product_prices
 
-  
 end
