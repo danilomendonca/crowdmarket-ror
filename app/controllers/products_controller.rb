@@ -21,12 +21,6 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  # GET /products/1/add_price
-  def add_price
-    @product_price = ProductPrice.new(product: @product)
-    render 'product_prices/new'
-  end
-
   # POST /products
   # POST /products.json
   def create
@@ -54,6 +48,12 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /products/1/add_price
+  def add_price
+    @product_price = ProductPrice.new(product: @product)
+    render 'product_prices/new'
   end
 
   # DELETE /products/1

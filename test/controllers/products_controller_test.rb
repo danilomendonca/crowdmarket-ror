@@ -46,6 +46,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to product_url(@product)
   end
 
+  test "should get add price to product" do
+    get product_add_price_url(@product)
+    assert_response :success
+  end
+
   test "should destroy product" do
     assert_difference('Product.count', -1) do
       delete product_url(@product)

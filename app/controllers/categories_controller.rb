@@ -21,12 +21,6 @@ class CategoriesController < ApplicationController
   def edit
   end
 
-  # GET /categories/1/add_product
-  def add_product
-    @product = Product.new(category: @category)
-    render 'products/new'
-  end
-
   # POST /categories
   # POST /categories.json
   def create
@@ -55,6 +49,12 @@ class CategoriesController < ApplicationController
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /categories/1/add_product
+  def add_product
+    @product = Product.new(category: @category)
+    render 'products/new'
   end
 
   # DELETE /categories/1
