@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class BrandsTest < ApplicationSystemTestCase
   setup do
-    @brand = brands(:one)
+    @brand = build(:brand)
   end
 
   test "visiting the index" do
@@ -22,6 +22,7 @@ class BrandsTest < ApplicationSystemTestCase
   end
 
   test "updating a Brand" do
+    @brand.save
     visit brands_url
     click_on "Edit", match: :first
 
@@ -33,6 +34,7 @@ class BrandsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Brand" do
+    @brand.save
     visit brands_url
     page.accept_confirm do
       click_on "Destroy", match: :first
