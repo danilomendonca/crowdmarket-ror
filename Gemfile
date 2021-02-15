@@ -43,6 +43,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Alternative test framework
+  #gem 'rspec-rails', '~> 4.0.1'
+
+  gem 'factory_bot'
 end
 
 group :test do
@@ -51,6 +56,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  # Alternative test framework
+  #gem 'rspec-rails', '~> 4.0.1'
 
   # Replace fixtures; easy creation of test models
   gem 'factory_bot'

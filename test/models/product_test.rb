@@ -23,4 +23,10 @@ class ProductTest < ActiveSupport::TestCase
     assert_not product.save, "Product saved without a valid category"
   end
 
+  test "should not save product without a valid brand" do
+    product = build(:product)
+    product.brand = nil
+    assert_not product.save, "Product saved without a valid brand"
+  end
+
 end

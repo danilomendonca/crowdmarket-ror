@@ -4,10 +4,15 @@ FactoryBot.define do
     sequence(:name)  {|n| "Category##{n}" }
   end
 
+  factory :brand do
+    sequence(:name)  {|n| "Brand##{n}" }
+  end
+
   factory :product do
     sequence(:name)  {|n| "Product##{n}" }
     validated { false }
     association :category
+    association :brand
   end
 
   factory :product_without_category, class: Product do
