@@ -4,12 +4,28 @@
     <title>Crowdmarket</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container mt-3">
+    <div class="header row">
+      <div class="col-sm">
+        <%= link_to 'Supermarkets', supermarkets_path %>
+      </div>
+      <div class="col-sm">
+        <%= link_to 'Categories', categories_path %>
+      </div>
+      <div class="col-sm">
+        <%= link_to 'Brands', brands_path %>
+      </div>
+      <div class="col-sm">
+        <%= link_to 'Products', products_path %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
