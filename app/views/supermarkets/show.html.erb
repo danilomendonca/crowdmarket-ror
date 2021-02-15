@@ -1,11 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @supermarket.name %>
-</p>
-
-<%= render 'supermarkets/prices', product_prices: @supermarket.product_prices %>
-
-<%= link_to 'Edit', edit_supermarket_path(@supermarket) %> |
-<%= link_to 'List', supermarkets_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col">
+      <h1><%= @supermarket.name %></h1>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= render 'supermarkets/prices', product_prices: @supermarket.product_prices %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to 'Edit', edit_supermarket_path(@supermarket) %> |
+      <%= link_to 'List', supermarkets_path %>
+    </div>
+  </div>
+</div>

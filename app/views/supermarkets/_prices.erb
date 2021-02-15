@@ -1,29 +1,24 @@
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Price</th>
-      <th colspan="3">&nbsp;</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% unless product_prices.empty? %>
-      <% product_prices.each do |product_price| %>
-        <tr>
-          <td><%= product_price.product.name %></td>
-          <td><%= product_price.price %></td>
-          <td><%= link_to 'Show', product_price %></td>
-          <td><%= link_to 'Edit', edit_product_price_path(product_price) %></td>
-          <td><%= link_to 'Destroy', product_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    <% else %>
-      <tr>
-        <td>---</td>
-        <td>---</td>
-        <th colspan="2">&nbsp;</th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% unless product_prices.empty? %>
+  <div class="row">
+      <div class="col font-weight-bold">Product</div>
+      <div class="col font-weight-bold">Price</div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="w-100"></div>
+  </div>
+  <% product_prices.each do |product_price| %>
+    <div class="row">
+      <div class="col"><%= product_price.product.name %></div>
+      <div class="col"><%= product_price.price %></div>
+      <div class="col"><%= link_to 'Show', product_price %></div>
+      <div class="col"><%= link_to 'Edit', edit_product_price_path(product_price) %></div>
+      <div class="col"><%= link_to 'Destroy', product_price, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <div class="w-100"></div>
+    </div>
+  <% end %>
+<% else %>
+    <div class="row justify-content-start">
+      <div class="col-6">No price has been registred for this supermarket's products yet.</div>
+  </div>
+<% end %>
