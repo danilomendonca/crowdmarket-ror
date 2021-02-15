@@ -3,6 +3,7 @@ require 'test_helper'
 class BrandsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @brand = create(:brand)
+    @brand_new = build(:brand)
   end
 
   test "should get index" do
@@ -17,7 +18,7 @@ class BrandsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create brand" do
     assert_difference('Brand.count') do
-      post brands_url, params: { brand: { name: @brand.name } }
+      post brands_url, params: { brand: { name: @brand_new.name } }
     end
 
     assert_redirected_to brand_url(Brand.last)

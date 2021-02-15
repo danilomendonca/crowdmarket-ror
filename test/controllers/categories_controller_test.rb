@@ -3,7 +3,7 @@ require 'test_helper'
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @category = create(:category)
-    @category_new = build(:product)
+    @category_new = build(:category)
   end
 
   test "should get index" do
