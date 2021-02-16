@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: { scope: :brand }
   validates :validated, inclusion: { in: [ true, false ] }
   validates :category, presence: true
   validates :brand, presence: true
