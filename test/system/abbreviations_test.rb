@@ -11,11 +11,13 @@ class AbbreviationsTest < ApplicationSystemTestCase
   end
 
   test "creating a Abbreviation" do
+    @supermarket = create(:supermarket)
     @product = create(:product)
     visit abbreviations_url
     click_on "New Abbreviation"
 
     fill_in "Name", with: @abbreviation.name
+    select(@supermarket.name, from: "abbreviation_supermarket_id")
     select(@product.name, from: "abbreviation_product_id")
     click_on "Create Abbreviation"
 
@@ -29,7 +31,6 @@ class AbbreviationsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: @abbreviation.name
-    #select(@abbreviation.product.name, from: "abbreviation_product_id")
     click_on "Update Abbreviation"
 
     assert_text "Abbreviation was successfully updated"

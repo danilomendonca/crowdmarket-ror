@@ -17,6 +17,15 @@
   </div>
 
   <div class="field">
+    <%= form.label :supermarket_id, class: 'font-weight-bold' %>
+    <%= form.select :supermarket_id,
+          options_for_select(Supermarket.all.map{|c| [c.name, c.id]}, abbreviation.supermarket_id),
+          {},
+          {required: true, disabled: !abbreviation.supermarket.nil?, class: 'custom-select'}
+    %>
+  </div>
+
+  <div class="field">
     <%= form.label :product_id, class: 'font-weight-bold' %>
     <%= form.select :product_id,
           options_for_select(Product.all.map{|c| [c.name, c.id]}, abbreviation.product_id),

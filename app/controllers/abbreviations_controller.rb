@@ -69,6 +69,6 @@ class AbbreviationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def abbreviation_params
-      params.require(:abbreviation).permit(:name, :product_id)
+      params.require(:abbreviation).permit(:name, :supermarket_id, :product_id)
     end
 end

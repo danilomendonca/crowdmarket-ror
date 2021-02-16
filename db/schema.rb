@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_125144) do
+ActiveRecord::Schema.define(version: 2021_02_16_131104) do
 
   create_table "abbreviations", force: :cascade do |t|
     t.string "name"
     t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "supermarket_id", null: false
     t.index ["product_id"], name: "index_abbreviations_on_product_id"
+    t.index ["supermarket_id"], name: "index_abbreviations_on_supermarket_id"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_125144) do
   end
 
   add_foreign_key "abbreviations", "products"
+  add_foreign_key "abbreviations", "supermarkets"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_prices", "supermarkets"
   add_foreign_key "products", "brands"

@@ -21,6 +21,7 @@ FactoryBot.define do
 
   factory :abbreviation do
     sequence(:name)  {|n| "Prod##{n}" }
+    association :supermarket
     association :product
   end
 

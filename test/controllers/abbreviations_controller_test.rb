@@ -17,8 +17,10 @@ class AbbreviationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create abbreviation" do
     @product = create(:product)
+    @supermarket = create(:supermarket)
     assert_difference('Abbreviation.count') do
-      post abbreviations_url, params: { abbreviation: { name: @abbreviation.name, product_id: @product.id } }
+      post abbreviations_url,
+      params: { abbreviation: { name: @abbreviation.name, supermarket_id: @supermarket.id, product_id: @product.id } }
     end
 
     assert_redirected_to abbreviation_url(Abbreviation.last)
