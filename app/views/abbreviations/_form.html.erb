@@ -1,0 +1,31 @@
+<%= form_with(model: abbreviation, local: true) do |form| %>
+  <% if abbreviation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(abbreviation.errors.count, "error") %> prohibited this abbreviation from being saved:</h2>
+
+      <ul>
+        <% abbreviation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id, class: 'font-weight-bold' %>
+    <%= form.select :product_id,
+          options_for_select(Product.all.map{|c| [c.name, c.id]}, abbreviation.product_id),
+          {},
+          {required: true, disabled: !abbreviation.product.nil?, class: 'custom-select'}
+    %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

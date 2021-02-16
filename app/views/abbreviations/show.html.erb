@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @abbreviation.name %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @abbreviation.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_abbreviation_path(@abbreviation) %> |
+<%= link_to 'Back', abbreviations_path %>

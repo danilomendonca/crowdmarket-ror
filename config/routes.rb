@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :abbreviations
   resources :brands
   resources :supermarkets
   resources :product_prices

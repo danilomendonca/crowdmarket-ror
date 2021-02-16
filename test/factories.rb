@@ -19,6 +19,11 @@ FactoryBot.define do
     sequence(:name)  {|n| "Product##{n}" }
   end
 
+  factory :abbreviation do
+    sequence(:name)  {|n| "Prod##{n}" }
+    association :product
+  end
+
   factory :product_price do
     sequence(:price)  {|n| n }
     validated { false }
