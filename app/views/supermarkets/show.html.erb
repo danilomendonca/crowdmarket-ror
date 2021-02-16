@@ -1,10 +1,8 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <div class="row">
-    <div class="col">
-      <h1><%= @supermarket.name %></h1>
-    </div>
-  </div>
+  <h1 class="display-5"><%= @supermarket.name %></h1>
+  <hr class="my-4">
+
   <div class="row mt-3">
     <div class="col">
       <%= render 'supermarkets/prices', product_prices: @supermarket.product_prices %>
