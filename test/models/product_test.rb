@@ -7,10 +7,16 @@ class ProductTest < ActiveSupport::TestCase
     assert_not product.save, "Saved the product without a name"
   end
 
-  test "should not save product with duplicated name" do
-    create(:product, name: "Product 1")
-    product = build(:product, name: "Product 1")
-    assert_not product.save, "Product saved with duplicated name"
+  test "should not save product from the same brand with duplicated name" do
+    product_1 = create(:product, name: "Product 1")
+    product_2 = build(:product, name: "Product 1", brand: product_1.brand)
+    assert_not product_2.save, "Product from the same brand saved with duplicated name"
+  end
+
+  test "should save product from a different brand with duplicated name" do
+    product_1 = create(:product, name: "Product 1")
+    product_2 = build(:product, name: "Product 1")
+    assert product_2.save, "Product from different brand not saved with duplicated name"
   end
 
   test "should not save product without validated field" do
