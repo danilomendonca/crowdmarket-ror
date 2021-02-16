@@ -11,32 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, options_for_select(Category.all.map{|c| [c.name, c.id]}, product.category_id), {}, {required: true, disabled: !product.category.nil?} %>
+  <div class="form-group">
+    <%= form.label :name, class: 'font-weight-bold' %>
+    <%= form.text_field :name, required: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :brand_id %>
-    <%= form.select :brand_id, options_for_select(Brand.all.map{|c| [c.name, c.id]}, product.brand_id), required: true %>
+  <div class="form-group">
+    <%= form.label :category_id, class: 'font-weight-bold' %>
+    <%= form.select :category_id,
+          options_for_select(Category.all.map{|c| [c.name, c.id]}, product.category_id),
+          {},
+          {required: true, disabled: !product.category.nil?, class: 'custom-select'}
+    %>
   </div>
 
-  <!--<div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, required: true %>
-  </div>-->
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, required: true %>
+  <div class="form-group">
+    <%= form.label :brand_id, class: 'font-weight-bold' %>
+    <%= form.select :brand_id,
+          options_for_select(Brand.all.map{|c| [c.name, c.id]}, product.brand_id),
+          {},
+          {required: true, class: 'custom-select'} %>
   </div>
 
-  <div class="field">
-    <%= form.label :validated %>
-    <%= form.check_box :validated %>
+  <div class="form-group form-check">
+    <%= form.check_box :validated, class: 'form-check-input' %>
+    <%= form.label :validated, class: 'form-check-label' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

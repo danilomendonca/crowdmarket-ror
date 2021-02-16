@@ -1,33 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="display-5">Products</h1>
+  <hr class="my-4">
 
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Brand</th>
-      <th>Validated</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.category.name %></td>
-        <td><%= product.brand.name %></td>
-        <td><%= product.validated %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+  <% unless @products.empty? %>
+  <div class="row">
+      <div class="col font-weight-bold">Name</div>
+      <div class="col font-weight-bold">Category</div>
+      <div class="col font-weight-bold">Brand</div>
+      <div class="col font-weight-bold">Validated</div>
+      <div class="col"></div>
+      <div class="w-100"></div>
+  </div>
+  <% @products.each do |product| %>
+    <div class="row">
+      <div class="col"><%= product.name %></div>
+      <div class="col"><%= product.category.name %></div>
+      <div class="col"><%= product.brand.name %></div>
+      <div class="col"><%= product.validated %></div>
+      <div class="col">
+        <div class="row">
+          <div class="col"><%= link_to 'Show', product %></div>
+          <div class="col"><%= link_to 'Edit', edit_product_path(product) %></div>
+          <div class="col"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
+      </div>
+      <div class="w-100"></div>
+    </div>
+  <% end %>
+<% else %>
+    <div class="row justify-content-start">
+      <div class="col-6">No product has been registered yet.</div>
+    </div>
+<% end %>
+  <div class="row mt-3 justify-content-center">
+    <div class="col">
+      <%= link_to 'New Product', new_product_path %>
+    </div>
+  </div>
+</div>

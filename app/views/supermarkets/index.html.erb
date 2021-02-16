@@ -7,16 +7,18 @@
   <div class="row">
       <div class="col font-weight-bold">Name</div>
       <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
       <div class="w-100"></div>
   </div>
   <% @supermarkets.each do |supermarket| %>
     <div class="row">
       <div class="col"><%= supermarket.name %></div>
-      <div class="col"><%= link_to 'Show', supermarket %></div>
-      <div class="col"><%= link_to 'Edit', edit_supermarket_path(supermarket) %></div>
-      <div class="col"><%= link_to 'Destroy', supermarket, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <div class="col">
+        <div class="row">
+          <div class="col"><%= link_to 'Show', supermarket %></div>
+          <div class="col"><%= link_to 'Edit', edit_supermarket_path(supermarket) %></div>
+          <div class="col"><%= link_to 'Destroy', supermarket, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
+      </div>
       <div class="w-100"></div>
     </div>
   <% end %>

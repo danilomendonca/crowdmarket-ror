@@ -1,6 +1,19 @@
-<h1>Editing Product</h1>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="display-5">Editing</h1>
+  <hr class="my-4">
 
-<%= render 'form', product: @product %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= render 'form', product: @product %>
+    </div>
+  </div>
+  <hr class="my-4">
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'List', products_path %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to 'Show', @product %> |
+      <%= link_to 'List', products_path %>
+    </div>
+  </div>
+</div>

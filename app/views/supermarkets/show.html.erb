@@ -5,13 +5,13 @@
 
   <div class="row mt-3">
     <div class="col">
-      <%= render 'supermarkets/prices', product_prices: @supermarket.product_prices %>
+      <%= render 'products/prices', product_prices: @supermarket.product_prices %>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col">
       <%= link_to 'Edit', edit_supermarket_path(@supermarket) %> |
-      <%= link_to 'List', supermarkets_path %>
+      <%= link_to 'List', products_path %>
     </div>
   </div>
 </div>

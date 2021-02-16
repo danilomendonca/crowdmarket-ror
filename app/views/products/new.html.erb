@@ -1,5 +1,21 @@
-<h1>New Product<%== " in #{@product.category&.name}" unless @product.category.nil? %></h1>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="display-5">New Product<%== " in #{@product.category&.name}" unless @product.category.nil? %></h1>
+  <hr class="my-4">
 
-<%= render 'products/form', product: @product %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= render 'products/form', product: @product %>
+    </div>
+  </div>
+  <hr class="my-4">
 
-<%= link_to 'List', products_path %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to 'List', products_path %>
+    </div>
+  </div>
+</div>
+
+
+
