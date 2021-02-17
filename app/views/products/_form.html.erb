@@ -23,6 +23,7 @@
           {},
           {required: true, disabled: !product.category.nil?, class: 'custom-select'}
     %>
+    <%= form.hidden_field :category_id unless product.category.nil? %>
   </div>
 
   <div class="form-group">

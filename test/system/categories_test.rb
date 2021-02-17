@@ -44,4 +44,18 @@ class CategoriesTest < ApplicationSystemTestCase
 
     assert_text "Category was successfully destroyed"
   end
+
+  test "adding a product to a category" do
+    @category.save
+    @brand = create(:brand)
+    visit category_url(@category)
+    assert_selector "p", text: @category.name
+    click_on 'Add Product'
+    fill_in "Name", with: build(:product).name
+    select(@brand.name, from: "product_brand_id")
+    binding.pry
+    click_on 'Create Product'
+
+    assert_text "Product was successfully created"
+  end
 end
