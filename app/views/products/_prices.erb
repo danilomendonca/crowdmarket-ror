@@ -1,17 +1,15 @@
 <% unless product_prices.empty? %>
   <div class="row mb-1">
       <div class="col font-weight-bold">Supermarket</div>
-      <div class="col-2 font-weight-bold">Price</div>
-      <div class="col-2"></div>
-      <div class="col-2"></div>
-      <div class="col-2"></div>
+      <div class="col font-weight-bold">Price</div>
+      <div class="col-3"></div>
       <div class="w-100"></div>
   </div>
   <% product_prices.each do |product_price| %>
     <div class="row">
       <div class="col"><%= product_price.supermarket.name %></div>
-      <div class="col-2"><%= product_price.price %></div>
-      <div class="col-6">
+      <div class="col"><%= product_price.price %></div>
+      <div class="col-3">
         <div class="row">
           <div class="col"><%= link_to 'Show', product_price %></div>
           <div class="col"><%= link_to 'Edit', edit_product_price_path(product_price) %></div>

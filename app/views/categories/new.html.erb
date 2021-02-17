@@ -1,5 +1,21 @@
-<h1>New Category</h1>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="display-6">New Category</h1>
+  <hr class="my-4">
 
-<%= render 'form', category: @category %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= render 'categories/form', category: @category %>
+    </div>
+  </div>
+  <hr class="my-4">
 
-<%= link_to 'List', categories_path %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to 'List', categories_path %>
+    </div>
+  </div>
+</div>
+
+
+

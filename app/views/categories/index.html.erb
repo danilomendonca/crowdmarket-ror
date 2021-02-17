@@ -1,29 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="display-4">Categories</h1>
+  <hr class="my-4">
 
-<h1>Categories</h1>
+  <% unless @categories.empty? %>
+  <div class="row mb-1">
+      <div class="col font-weight-bold">Name</div>
+      <div class="col font-weight-bold">Validated</div>
+      <div class="col"></div>
+      <div class="w-100"></div>
+  </div>
+  <% @categories.each do |category| %>
+    <div class="row">
+      <div class="col"><%= category.name %></div>
+      <div class="col"><%= category.validated %></div>
+      <div class="col">
+        <div class="row">
+          <div class="col"><%= link_to 'Show', category %></div>
+          <div class="col"><%= link_to 'Edit', edit_category_path(category) %></div>
+          <div class="col"><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
+      </div>
+      <div class="w-100"></div>
+    </div>
+  <% end %>
+<% else %>
+    <div class="row justify-content-start">
+      <div class="col-6">No category has been registered yet.</div>
+    </div>
+<% end %>
+  <hr class="my-4">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Validated</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.validated %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+  <div class="row mt-3 justify-content-center">
+    <div class="col">
+      <%= link_to 'New Category', new_category_path %>
+    </div>
+  </div>
+</div>

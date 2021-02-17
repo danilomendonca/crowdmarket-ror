@@ -1,38 +1,40 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
+  <h1 class="display-4">Product</h1>
   <hr class="my-4">
 
   <div class="row mt-3">
     <div class="col">
         <strong>Name:</strong>
     </div>
-    <div class="col-8">
+    <div class="col">
         <%= @product.name %>
     </div>
     <div class="w-100"></div>
     <div class="col">
       <strong>Category:</strong>
     </div>
-    <div class="col-8">
+    <div class="col">
       <%= link_to @product.category.name, @product.category %>
     </div>
     <div class="w-100"></div>
     <div class="col">
       <strong>Brand:</strong>
     </div>
-    <div class="col-8">
+    <div class="col">
       <%= link_to @product.brand.name, @product.brand %>
     </div>
     <div class="w-100"></div>
     <div class="col">
       <strong>Validated:</strong>
     </div>
-    <div class="col-8">
+    <div class="col">
       <%= @product.validated %>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col">
+      <p class="lead font-weight-bold">Product prices</p>
       <%= render 'products/prices', product_prices: @product.product_prices %>
     </div>
   </div>

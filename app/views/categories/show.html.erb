@@ -1,17 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="display-4">Category</h1>
+  <hr class="my-4">
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+  <div class="row mt-3">
+    <div class="col">
+        <strong>Name:</strong>
+    </div>
+    <div class="col">
+        <%= @category.name %>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <strong>Validated:</strong>
+    </div>
+    <div class="col">
+      <%= @category.validated %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <p class="lead font-weight-bold">Products in this category</p>
+      <%= render 'categories/products', products: @category.products %>
+    </div>
+  </div>
+  <hr class="my-4">
 
-<p>
-  <strong>Validated:</strong>
-  <%= @category.validated %>
-</p>
-
-<%= render 'products', products: @category.products %>
-
-<%= link_to 'Add Product', category_add_product_path(@category) %> |
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'List', categories_path %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to 'Add Product', category_add_product_path(@category) %> |
+      <%= link_to 'Edit', edit_category_path(@category) %> |
+      <%= link_to 'List', categories_path %>
+    </div>
+  </div>
+</div>

@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, class: 'font-weight-bold' %>
+    <%= form.text_field :name, required: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :validated %>
-    <%= form.check_box :validated %>
+  <div class="form-group form-check">
+    <%= form.check_box :validated, class: 'form-check-input' %>
+    <%= form.label :validated, class: 'form-check-label' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
